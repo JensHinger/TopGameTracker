@@ -1,0 +1,15 @@
+# Copyright Broadcom, Inc. All Rights Reserved.
+# SPDX-License-Identifier: APACHE-2.0
+
+services:
+    postgresql:
+        image: 'postgres:latest'
+        ports:
+            - '5431:5432'
+        volumes:
+            - 'postgresql_data:/var/lib/postgresql/data'
+        environment:
+            POSTGRES_PASSWORD: 'admin'
+  
+volumes:
+    postgresql_data:
