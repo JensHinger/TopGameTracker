@@ -1,12 +1,13 @@
 'use client'
 
-import { useSearchParams } from "next/navigation"
+import { useParams } from "next/navigation"
 import GameInfoPage from "./gameInfoPage";
 import { Grid2 } from "@mui/material";
+import React from "react";
 
 export default function Page() {
-    const searchParams = useSearchParams();
-    const game = searchParams.get("game");
+
+    const { game } = useParams<{game : string}>();
 
     return (
         <Grid2

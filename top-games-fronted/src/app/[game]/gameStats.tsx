@@ -1,10 +1,8 @@
 import { rankingData } from "@/models/rankingData";
-import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Typography } from "@mui/material";
-import { BarChart, LineChart } from "@mui/x-charts";
-import { ChangeEvent, useState } from "react";
+import { Typography } from "@mui/material";
+import { LineChart } from "@mui/x-charts";
 
 export default function GameStats(
-    // TODO make dataKey in series choosable
     {rankingData}:
     {rankingData : rankingData[]}) {
 
