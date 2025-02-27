@@ -16,5 +16,8 @@ public interface RankingDataRepository extends JpaRepository<RankingData, Rankin
 
     @Query(value = "SELECT * FROM rankingdata WHERE game = :game ORDER BY date DESC LIMIT :number", nativeQuery = true)
     List<RankingData> findNLatestByGame(String game, int number);
+
+    @Query(value = "SELECT * FROM rankingdata ORDER BY date DESC LIMIT :number", nativeQuery = true)
+    List<RankingData> findNLatestEntries(int number);
 }
 

@@ -35,4 +35,9 @@ public class RankingDataController {
     public List<RankingDataDTO> findAllBetweenDate(@PathVariable Date startDate, @PathVariable Date endDate) {
         return rankingDataService.findAllBetweenDate(startDate, endDate);
     }
+
+    @GetMapping("/all/{number}")
+    public List<RankingDataDTO> findNLatestEntries(@PathVariable int number) {
+        return rankingDataService.findNLatestEntries(number);
+    }
 }

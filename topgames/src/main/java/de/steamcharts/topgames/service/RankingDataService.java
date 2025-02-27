@@ -41,6 +41,12 @@ public class RankingDataService {
                 .toList();
     }
 
+    public List<RankingDataDTO> findNLatestEntries(int number) {
+        return rankingDataRepository.findNLatestEntries(number)
+                .stream().map(this::convertToDTO)
+                .toList();
+    }
+
     private RankingDataDTO convertToDTO(RankingData rankingData){
         return new RankingDataDTO(
                 rankingData.getRankingDataPK().getGame().getName(),
