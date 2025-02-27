@@ -5,6 +5,7 @@ import { getGameByName } from "@/api/games/get-games";
 import GameStats from "./gameStats";
 import GameInfoBox from "../components/GameInfoBox/gameInfoBox";
 import { useEffect, useState } from "react";
+import { Typography } from "@mui/material";
 
 // TODO game does not exist -> show 404 or smth
 function GameInfoPage(
@@ -22,14 +23,14 @@ function GameInfoPage(
         setRankingData(await getRankingDataForGame(gameName));
         setLastRankingData(await getNLatestRankingDataForGame(gameName, 1));
     }
-    loadStuff()
-     
+    useEffect(() => {loadStuff()}, [])
+
     return (
         gameData && lastRankingData?
             <>
                 <GameInfoBox props={{gameData: gameData, lastRankingData: lastRankingData[0]}}/>
                 {rankingData ? <GameStats rankingData={rankingData}></GameStats>: "No Data exists rn"}
-            </> : <div>Loading...</div>
+            </> : <Typography type="div">Loading...</Typography>
     )
 }
 export default GameInfoPage

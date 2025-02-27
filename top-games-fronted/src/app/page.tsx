@@ -1,16 +1,12 @@
 import { gameData } from "@/models/game";
 import { getGames } from "@/api/games/get-games";
 import GameCardOverview from "./components/GameCard/gameCardOverview";
-import scss from './Home.module.scss';
-
-import { ThemeProvider } from "@mui/material/styles"
-import darkTheme from "@/theme/darkTheme";
-import { CssBaseline } from "@mui/material";
 
 async function Home() {
   const allGames: gameData[] = await getGames();
+
   return (
-      <main className={scss.main}>
+      <main style={{padding: "0 24px", maxWidth: "85rem", margin:"auto"}}>
         <>
           {allGames? <GameCardOverview games={allGames}/>
           :

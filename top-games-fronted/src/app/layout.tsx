@@ -14,12 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const storedTheme = localStorage.getItem("theme");
-  const initialMode = storedTheme || "dark";
+  const [mode, setMode] = useState<"light" | "dark">("dark");
 
-  const [mode, setMode] = useState<"light" | "dark">(
-    initialMode as "light" | "dark",
-  );
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    const initialMode = storedTheme || "dark";
+    setMode(initialMode === "dark"? "dark": "light")
+  }, [])
 
   useEffect(() => {
     localStorage.setItem("theme", mode);
